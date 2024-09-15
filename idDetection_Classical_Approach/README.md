@@ -9,6 +9,7 @@ such as edge detection and corner detection.
 2. `test/`: Contains the test images.
 3. `output/`: Folder where the processed images will be saved (generated after running the project).
 4. `requirements.txt`: List of dependencies.
+5. `Dockerfile`: to build docker image.
 
 ## Setup Instructions
 
