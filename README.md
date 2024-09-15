@@ -17,8 +17,7 @@ This repository contains two separate implementations for detecting ID cards and
 
 1. Clone the repository:
    - git clone https://github.com/marvensherif/ID_Detection_Line_Extraction
-   - cd idDetection_Classical_Approach
-   - **or** 
-   - cd idDetection_DeepLearning_Approach
+   - cd ID_Detection_Line_Extraction
+
 
 
