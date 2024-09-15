@@ -11,7 +11,7 @@ YOLO Model 2: Text Line Segmentation and Labeling.
 2. `test_images/`: Input folder with test images.
 3. `output_images/`: Output folder for processed images (generated after running the project).
 4. `weights/model1`: Contains the YOLO model weights for id detection.
-5. `weights/model2`: Contains the YOLO model weights fro line segmentation.
+5. `weights/model2`: Contains the YOLO model weights fro line extraction.
 6. `requirements.txt`: List of dependencies.
 7. `Dockerfile`: to build docker image.
 
