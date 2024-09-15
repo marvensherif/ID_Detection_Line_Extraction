@@ -13,6 +13,7 @@ YOLO Model 2: Text Line Segmentation and Labeling.
 4. `weights/model1`: Contains the YOLO model weights for id detection.
 5. `weights/model2`: Contains the YOLO model weights fro line segmentation.
 6. `requirements.txt`: List of dependencies.
+7. `Dockerfile`: to build docker image.
 
 ## Setup Instructions
 
