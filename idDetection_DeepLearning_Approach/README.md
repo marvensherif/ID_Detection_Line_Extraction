@@ -16,19 +16,20 @@ YOLO Model 2: Text Line Segmentation and Labeling.
 7. `Dockerfile`: to build docker image.
 
 ## Setup Instructions
-
-1. Install the required dependencies:
+1. cd idDetection_DeepLearning_Approach
+2. Install the required dependencies:
     pip install -r requirements.txt
-2. Place your test images in the `test_images/` folder.
-3. Run the main script:
+3. Place your test images in the `test_images/` folder.
+4. Run the main script:
     python src/main.py
 
 ## Running using docker
-1. Place your test images in the `test_images/` folder.
-2. docker build -t your_image_name .
-3. docker run -it your_image_name
-4. python src/main.py
-5. docker cp <container_id>:/app/output_images ./output_images
+1. cd idDetection_DeepLearning_Approach
+2. Place your test images in the `test_images/` folder.
+3. docker build -t your_image_name .
+4. docker run -it your_image_name
+5. python src/main.py
+6. docker cp <container_id>:/app/output_images ./output_images
 - **get container_id from docker ps command**
 
 The Processed images will be saved in the `output_images/` folder.
