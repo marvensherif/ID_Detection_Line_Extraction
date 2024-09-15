@@ -16,9 +16,9 @@ This repository contains two separate implementations for detecting ID cards and
 ## Setup Instructions
 
 1. Clone the repository:
-   git clone <repository-url>
-   cd idDetection_Classical_Approach
-      **or** 
-   cd idDetection_DeepLearning_Approach
+   - git clone <repository-url>
+   - cd idDetection_Classical_Approach
+   - **or** 
+   - cd idDetection_DeepLearning_Approach
 
 
