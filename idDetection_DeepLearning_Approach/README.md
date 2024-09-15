@@ -3,7 +3,7 @@
 The deep learning approach utilizes two fine-tuned YOLO models for accurate and efficient 
 ID card detection and text line segmentation
 YOLO Model 1: ID Card Detection
-YOLO Model 2: Text Line Segmentation and Labeling.
+YOLO Model 2: Text Line extraction and Labeling.
 
 ## Structure
 
