@@ -18,12 +18,12 @@ such as edge detection and corner detection.
 3. Run the main script:
       python src/main.py
 
-## **running using docker**:
-    1. Place your test images in the `test/` folder.
-    2. docker build -t your_image_name .
-    3. docker run -it your_image_name
-    4. python src/main.py
-    5. docker cp <container_id>:/app/output ./output
-        **get container_id from docker ps command**
+## Running using docker
+1. Place your test images in the `test/` folder.
+2. docker build -t your_image_name .
+3. docker run -it your_image_name
+4. python src/main.py
+5. docker cp <container_id>:/app/output ./output
+- **get container_id from docker ps command**
 
 The processed images will be saved in the output/ folder.
