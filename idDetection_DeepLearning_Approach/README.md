@@ -14,6 +14,8 @@ YOLO Model 2: Text Line extraction and Labeling.
 5. `weights/model2`: Contains the YOLO model weights fro line extraction.
 6. `requirements.txt`: List of dependencies.
 7. `Dockerfile`: to build docker image.
+8. `ref`: to used as refernece imagefor flipping,and rotating the detected id card.
+9. `ref2`:  to used as refernece imagefor flipping,and rotating the detected id card.
 
 ## Setup Instructions
 1. cd idDetection_DeepLearning_Approach
