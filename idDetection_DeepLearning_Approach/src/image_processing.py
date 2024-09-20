@@ -1,21 +1,24 @@
 import cv2
+import numpy as np
 
-def rotate_to_make_width_horizontal(image, box):
-    x1, y1, x2, y2 = map(int, box.xyxy[0])
-    cropped_img = image[y1:y2, x1:x2]
-    # Calculate the width and height of the bounding box
-    width = x2 - x1
-    height = y2 - y1
-    # If width is already greater than height, no rotation is needed
-    if width >= height:
-        print(f"No rotation needed. Width is already greater than height.")
-        return cropped_img
-    # If height is greater than width, rotate by 90 degrees to make width horizontal
-    else:
-        # Compute the center of the cropped image
-        center = (cropped_img.shape[1] // 2, cropped_img.shape[0] // 2)
-        # Apply 90-degree rotation to make the width horizontal
-        rotation_matrix = cv2.getRotationMatrix2D(center, 90, scale=1.0)
-        rotated_img = cv2.warpAffine(cropped_img, rotation_matrix, (cropped_img.shape[0], cropped_img.shape[1]))
-        print(f"Rotated by 90 degrees to make the width parallel to the x-axis.")
-        return rotated_img
+
+def align_image_to_reference(reference_img, target_img, min_matches=10):
+    gray_ref = cv2.cvtColor(reference_img, cv2.COLOR_BGR2GRAY)
+    gray_target = cv2.cvtColor(target_img, cv2.COLOR_BGR2GRAY)
+    sift = cv2.SIFT_create()
+    keypoints_ref, descriptors_ref = sift.detectAndCompute(gray_ref, None)
+    keypoints_target, descriptors_target = sift.detectAndCompute(gray_target, None)
+    bf = cv2.BFMatcher(cv2.NORM_L2, crossCheck=True)
+    matches = bf.match(descriptors_ref, descriptors_target)
+    matches = sorted(matches, key=lambda x: x.distance)
+    if len(matches) < min_matches:
+        return None, matches, keypoints_ref, keypoints_target
+    ref_points = np.float32([keypoints_ref[m.queryIdx].pt for m in matches]).reshape(-1, 1, 2)
+    target_points = np.float32([keypoints_target[m.trainIdx].pt for m in matches]).reshape(-1, 1, 2)
+    homography_matrix, mask = cv2.findHomography(target_points, ref_points, cv2.RANSAC, 5.0)
+    h, w = reference_img.shape[:2]
+    aligned_img = cv2.warpPerspective(target_img, homography_matrix, (w, h))
+
+    return aligned_img, matches, keypoints_ref, keypoints_target
+
+
